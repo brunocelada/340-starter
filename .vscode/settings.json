@@ -1,4 +1,18 @@
 {
     "editor.linkedEditing": true,
-    "editor.cursorStyle": "line"
+    "editor.cursorStyle": "line",
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "render.com-cse340",
+            "connectString": "postgresql://cse340:gD9bbkbn2NDSG3DbN8eFUE6rnJmvI9Aj@dpg-ctvbmdt2ng1s73dqcae0-a.virginia-postgres.render.com/cse340_7jia"
+        }
+    ]
 }
