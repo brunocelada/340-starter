@@ -55,6 +55,6 @@ SET
 
 SELECT (inv_image, inv_thumbnail) FROM public.inventory;
 
--- 7. 
+-- 7. Save queries 4 and 6 from assignment2.sql to the file db-sql-code.sql
 
--- Task Two - Destroy and Rebuild the Database
+-- TASK TWO - Destroy and Rebuild the Database
