@@ -1,0 +1,11 @@
+<!-- CONTENT HEADING
+ Add a h1 element if the page has a title -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- MESSAGE
+ Add the capacity to display a message in the future -->
+<%- message %>

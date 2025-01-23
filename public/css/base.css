@@ -63,15 +63,19 @@ nav ul {
   margin: 0;
   width: 100%;
 }
-nav li {
+nav li a {
   color: var(--main-background);
+  text-decoration: none;
   font-weight: bold;
   font-size: 1em;
   padding: 0.5rem 1rem;
   transition: var(--transtition);
-  background-color: transparent; 
+  background-color: transparent;
+  border-left: 1px solid var(--dark-contrast);
+  border-right: 1px solid var(--dark-contrast);
 }
-nav li:hover {
+  
+nav li a:hover {
   color: var(--dark-contrast);
   background-color: var(--main-background);
   box-sizing: border-box;
