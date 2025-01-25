@@ -29,5 +29,35 @@
     }
     #reviews li {
         margin-top: 15px; 
+    }
+
+    /* INVENTORY */
+    #inv-display {
+        grid-column: span 2;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+    }
+
+    /* DETAILS */
+    .vehicle-detail {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
+      .vehicle-detail img {
+        grid-column: 1;
+      }
+      .vehicle-info {
+        grid-column: 2;
+      }
+
+    
+    /* ERRORS */
+    #error-msj {
+        grid-column: span 2;
+        grid-row: 2;
+    }
+    
 }

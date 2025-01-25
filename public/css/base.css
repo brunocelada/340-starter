@@ -68,7 +68,7 @@ nav li a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1em;
-  padding: 0.5rem 1rem;
+  padding: 0;
   transition: var(--transtition);
   background-color: transparent;
   border-left: 1px solid var(--dark-contrast);
@@ -171,4 +171,55 @@ nav li a:hover {
 footer {
   margin-top: 20px;
   font-size: small;
+}
+
+/* INVENTORY */
+#inv-display {
+  list-style: none;
+  justify-items: center;
+  padding: 0;
+}
+#inv-display li {
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 75%;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#inv-display li img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.namePrice h2{
+  font-size: 1.5rem;
+}
+.namePrice hr{
+  border: 2px solid black;
+}
+
+/* VEHICLES */
+.vehicle-detail {
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+}
+.vehicle-detail img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/* ERRORS */
+#error-msj {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 10px 0;
 }
