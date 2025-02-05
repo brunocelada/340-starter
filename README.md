@@ -60,3 +60,8 @@ Asegurarse que en el package.json se encuentren las siguientes línea:
     "dev": "nodemon server.js"
     }
 Esto instalará las dependencias y solucionará problemas comunes automáticamente.
+
+Verificar si se agregaron los siguientes paquetes:
+pnpm add express-session connect-pg-simple express-messages connect-flash
+pnpm add body-parser
+pnpm add express-validator

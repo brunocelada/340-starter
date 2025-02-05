@@ -223,3 +223,74 @@ footer {
   font-size: 1.5rem;
   padding: 10px 0;
 }
+
+/* Flash messages */
+.notice {
+  color: red;
+  font-style: italic;
+}
+
+/* FORMS */
+form {
+  justify-self: center;
+  max-width:max-content;
+  border: 2px solid var(--dark-contrast);
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  justify-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+form input {
+  width: max-content;
+  height: 1.3rem;
+  font: .7rem;
+  margin: 5px 0 15px 0;
+}
+form label {
+  font-weight: bold;
+}
+form div {
+  display: flex;
+  align-items: center;
+  color: var(--dark-contrast);
+}
+form div a {
+  text-decoration: underline;
+  color: var(--dark-contrast);
+}
+#submit-btn, #pswdBtn {
+  width: initial;
+  font-size: .9rem;
+  background-color: var(--main-background);
+  padding: 5px 25px;
+  border-radius: 10px;
+  border: 1px solid var(--dark-contrast);
+  color: #4b4a4a;
+  cursor: pointer;
+  font-weight: bold;
+}
+.form-indication {
+  max-width: 200px;
+  font-style: italic;
+}
+#pswdBtn {
+  padding: 5px 10px;
+  font-size: .8rem;
+  color: #575757;
+  font-weight: 500;
+}
+
+/* Style of valid/invalid inputs */
+input:focus:invalid {
+  background-color: rgba(252, 197, 197, 0.767);
+}
+input:required:valid {
+  background-color: rgba(205, 250, 205, 0.767);
+}
+.ast {
+  color: red;
+  font-style: italic;
+  font-weight: lighter;
+}

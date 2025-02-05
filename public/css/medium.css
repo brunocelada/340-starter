@@ -60,4 +60,10 @@
         grid-row: 2;
     }
     
+    /* FORMS */
+    form {
+        grid-row: 2;
+        grid-column: span 2;
+        padding: 15px;
+    }
 }

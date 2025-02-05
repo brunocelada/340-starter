@@ -1,0 +1,27 @@
+<!-- CONTENT HEADING
+ Add a h1 element if the page has a title -->
+ <% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- MESSAGE
+ Add the capacity to display a message in the future -->
+<%- messages() %>
+
+<!-- FORM -->
+<form autocomplete="on" id="login-form">
+    <label for="account_email">Email</label><br>
+    <input type="email" name="account_email" id="account_email" required><br>
+    <label for="account_password">Password</label><br>
+    <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br>
+    <button id="submit-btn" type="submit" form="login-form">LOGIN</button><br><br>
+    <div class="form-indication">
+        Passwords must be minimum of 12 characters and 
+        include 1 capital letter, 1 number and 1 special character.
+    </div>
+    <div>
+        <p>No account?&nbsp;</p><a title="Click to register" href="/account/register">Sing-up</a>
+    </div>
+</form>
