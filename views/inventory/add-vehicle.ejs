@@ -1,0 +1,54 @@
+<!-- CONTENT HEADING
+ Add a h1 element if the page has a title -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+            
+<!-- MESSAGE
+ Add the capacity to display a message in the future -->
+<%- messages() %>
+        
+<% if (errors) { %>
+    <ul class="notice">
+<% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+<% }) %>    
+    </ul>
+<% } %>
+            
+<!-- ADD NEW VEHICLE FORM -->
+<form id="add-vehicle-form" action="/inv/add-vehicle" method="post">
+    <label for="classificationList">Classification <span class="ast">*</span></label><br>
+    <!-- <input type="text" name="classification_id" id="classification_id" required pattern="[A-Za-zÀ-ÿ]+" value="<%= locals.classification_id %>"><br> -->
+    <%- list %> <br>
+
+    <label for="inv_make">Make <span class="ast">*</span></label><br>
+    <input type="text" name="inv_make" id="inv_make" required placeholder="Min of 3 characters" minlength="3" pattern=".{3,}" value="<%= locals.inv_make %>"><br>
+    
+    <label for="inv_model">Model <span class="ast">*</span></label><br>
+    <input type="text" name="inv_model" id="inv_model" required placeholder="Min of 3 characters" minlength="3" pattern=".{3,}" value="<%= locals.inv_model %>"><br>
+    
+    <label for="inv_year">Year <span class="ast">*</span></label><br>
+    <input type="text" name="inv_year" id="inv_year" required placeholder="4-digit year" maxlength="4" minlength="4" pattern="^\d{4}$" value="<%= locals.inv_year %>"><br>
+    
+    <label for="inv_price">Price <span class="ast">*</span></label><br>
+    <input type="text" name="inv_price" id="inv_price" required placeholder="decimal or integer" pattern="^\d+([.,]\d+)?$" value="<%= locals.inv_price %>"><br>
+    
+    <label for="inv_miles">Miles <span class="ast">*</span></label><br>
+    <input type="number" name="inv_miles" id="inv_miles" required placeholder="digits only" value="<%= locals.inv_miles %>"><br>
+    
+    <label for="inv_color">Color <span class="ast">*</span></label><br>
+    <input type="text" name="inv_color" id="inv_color" required pattern="[A-Za-zÀ-ÿ\s]+" value="<%= locals.inv_color %>"><br>
+    
+    <label for="inv_image">Image Path <span class="ast">*</span></label><br>
+    <input type="text" name="inv_image" id="inv_image" required pattern="^[^\s]+$" value="<%= locals.inv_image %>" placeholder="/images/vehicles/no-image.png"><br>
+    
+    <label for="inv_thumbnail">Thumbnail Path <span class="ast">*</span></label><br>
+    <input type="text" name="inv_thumbnail" id="inv_thumbnail" required pattern="^[^\s]+$" value="<%= locals.inv_thumbnail %>" placeholder="/images/vehicles/no-image-tn.png"><br>
+    
+    <label for="inv_description">Description <span class="ast">*</span></label><br>
+    <textarea name="inv_description" id="inv_description" required></textarea><br>
+    <button id="submit-btn" type="submit" form="add-vehicle-form">Add Vehicle</button><br>
+</form>

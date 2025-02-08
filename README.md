@@ -65,3 +65,4 @@ Verificar si se agregaron los siguientes paquetes:
 pnpm add express-session connect-pg-simple express-messages connect-flash
 pnpm add body-parser
 pnpm add express-validator
+pnpm add bcryptjs

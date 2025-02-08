@@ -242,13 +242,17 @@ form {
   justify-content: center;
   margin: 0 10px;
 }
-form input {
-  width: max-content;
+form input, #classificationList, textarea {
+  width: 250px;
   height: 1.3rem;
   font: .7rem;
   margin: 5px 0 15px 0;
 }
+textarea {
+  height: 80px;
+}
 form label {
+  width: 250px;
   font-weight: bold;
 }
 form div {
@@ -272,7 +276,7 @@ form div a {
   font-weight: bold;
 }
 .form-indication {
-  max-width: 200px;
+  max-width: 250px;
   font-style: italic;
 }
 #pswdBtn {
@@ -293,4 +297,11 @@ input:required:valid {
   color: red;
   font-style: italic;
   font-weight: lighter;
+}
+
+/* MANAGEMENT */
+
+/* Management links */
+#management-links {
+  padding: 15px;
 }

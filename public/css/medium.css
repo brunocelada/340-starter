@@ -34,7 +34,6 @@
     /* INVENTORY */
     #inv-display {
         grid-column: span 2;
-        grid-row: 2;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 10px;
@@ -53,17 +52,28 @@
         grid-column: 2;
       }
 
+
+    /* FORMS */
+    form {
+        grid-column: span 2;
+        padding: 15px;
+    }
+
+
+    /* MANAGEMENT */
+
+    /* Management links */
+    #management-links {
+        grid-column: span 2;
+    }
     
     /* ERRORS */
     #error-msj {
         grid-column: span 2;
         grid-row: 2;
     }
-    
-    /* FORMS */
-    form {
-        grid-row: 2;
+    .notice, #messages {
         grid-column: span 2;
-        padding: 15px;
+        grid-row: 2;
     }
 }

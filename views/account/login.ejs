@@ -10,10 +10,18 @@
  Add the capacity to display a message in the future -->
 <%- messages() %>
 
-<!-- FORM -->
-<form autocomplete="on" id="login-form">
+<% if (errors) { %>
+    <ul class="notice">
+<% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+<% }) %>    
+    </ul>
+<% } %>
+
+<!-- LOGIN FORM -->
+<form id="login-form" action="/account/login" method="post">
     <label for="account_email">Email</label><br>
-    <input type="email" name="account_email" id="account_email" required><br>
+    <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email %>"><br>
     <label for="account_password">Password</label><br>
     <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br>
     <button id="submit-btn" type="submit" form="login-form">LOGIN</button><br><br>
