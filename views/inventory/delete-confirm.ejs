@@ -1,0 +1,44 @@
+<!-- CONTENT HEADING
+ Add a h1 element if the page has a title -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+            
+<!-- MESSAGE
+ Add the capacity to display a message in the future -->
+<%- messages() %>
+        
+<% if (errors) { %>
+    <ul class="notice">
+<% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+<% }) %>    
+    </ul>
+<% } %>
+            
+<!-- DELETE A VEHICLE FORM -->
+<form id="delete-vehicle-form" action="/inv/delete-confirm" method="post">
+    <div class="form-indication">
+        Confirm Deletion - The delete is permanent.
+    </div><br>
+
+    <label for="inv_make">Make <span class="ast">*</span></label><br>
+    <input readonly type="text" name="inv_make" id="inv_make" required placeholder="Min of 3 characters" minlength="3" pattern=".{3,}" value="<%= locals.inv_make %>"><br>
+    
+    <label for="inv_model">Model <span class="ast">*</span></label><br>
+    <input readonly type="text" name="inv_model" id="inv_model" required placeholder="Min of 3 characters" minlength="3" pattern=".{3,}" value="<%= locals.inv_model %>"><br>
+    
+    <label for="inv_year">Year <span class="ast">*</span></label><br>
+    <input readonly type="text" name="inv_year" id="inv_year" required placeholder="4-digit year" maxlength="4" minlength="4" pattern="^\d{4}$" value="<%= locals.inv_year %>"><br>
+    
+    <label for="inv_price">Price <span class="ast">*</span></label><br>
+    <input readonly type="text" name="inv_price" id="inv_price" required placeholder="decimal or integer" pattern="^\d+([.,]\d+)?$" value="<%= locals.inv_price %>"><br>
+    
+    <button id="submit-btn" type="submit" form="delete-vehicle-form">Delete Vehicle</button><br>
+
+    <input type="hidden" name="inv_id"
+    <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
+</form>

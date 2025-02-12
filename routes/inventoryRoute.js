@@ -42,6 +42,9 @@ router.post(
     utilities.handleErrors(invController.addNewVehicle)
 );
 
+// UPDATE OR DELETE VEHICLES ***
+// *****************************
+
 // Route to build the "getInventory" views
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
@@ -54,6 +57,15 @@ router.post(
     invValidate.addVehicleRules(),
     invValidate.checkUpdateData,
     utilities.handleErrors(invController.updateInventory)
+);
+
+// Route to build the delete inventory views
+router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView))
+
+// Process the "delete-vehicle" data
+router.post(
+    "/delete-confirm",
+    utilities.handleErrors(invController.deleteInventory)
 );
 
 module.exports = router;

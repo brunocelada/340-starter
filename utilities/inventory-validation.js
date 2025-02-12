@@ -114,7 +114,6 @@ validate.addVehicleRules = () => {
         // inventory image path is required and must be a valid link
         body("inv_image")
             .trim()
-            .escape()
             .notEmpty()
             .isLength({ min: 1 })
             .withMessage("Please provide a valid inventory image path."), // on error this message is sent.
@@ -122,7 +121,6 @@ validate.addVehicleRules = () => {
         // inventory thumbnail is required and must be a valid link
         body("inv_thumbnail")
             .trim()
-            .escape()
             .notEmpty()
             .isLength({ min: 1 })
             .withMessage("Please provide a valid inventory thumbnail path."), // on error this message is sent.
@@ -157,12 +155,12 @@ validate.checkAddVehicleData = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
       let nav = await utilities.getNav()
-      let list = await utilities.buildClassificationList() // Build the classification list HTML
+      let classificationSelect = await utilities.buildClassificationList() // Build the classification list HTML
       res.render("inventory/add-vehicle", {
         errors,
         title: "Add New Vehicle",
         nav,
-        list,
+        classificationSelect,
         classification_id,
         inv_make,
         inv_model,

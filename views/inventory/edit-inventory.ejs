@@ -42,10 +42,10 @@
     <input type="text" name="inv_color" id="inv_color" required pattern="[A-Za-zÀ-ÿ\s]+" value="<%= locals.inv_color %>"><br>
     
     <label for="inv_image">Image Path <span class="ast">*</span></label><br>
-    <input type="text" name="inv_image" id="inv_image" required pattern="^[^\s]+$" value="<%= locals.inv_image %>" placeholder="/images/vehicles/no-image.png"><br>
+    <input type="text" name="inv_image" id="inv_image" required pattern="^[^\s]+$" value="<%- locals.inv_image %>" placeholder="/images/vehicles/no-image.png"><br>
     
     <label for="inv_thumbnail">Thumbnail Path <span class="ast">*</span></label><br>
-    <input type="text" name="inv_thumbnail" id="inv_thumbnail" required pattern="^[^\s]+$" value="<%= locals.inv_thumbnail %>" placeholder="/images/vehicles/no-image-tn.png"><br>
+    <input type="text" name="inv_thumbnail" id="inv_thumbnail" required pattern="^[^\s]+$" value="<%- locals.inv_thumbnail %>" placeholder="/images/vehicles/no-image-tn.png"><br>
     
     <label for="inv_description">Description <span class="ast">*</span></label><br>
     <textarea name="inv_description" id="inv_description" required><%= locals.inv_description %></textarea><br>
