@@ -275,6 +275,10 @@ form div a {
   cursor: pointer;
   font-weight: bold;
 }
+#submit-btn:disabled, #pswdBtn:disabled {
+  background-color: #f5f5f5;
+  color: #acacac;
+}
 .form-indication {
   max-width: 250px;
   font-style: italic;
@@ -305,3 +309,18 @@ input:required:valid {
 #management-links {
   padding: 15px;
 }
+#management-inventory table {
+  border-collapse: collapse;
+  border-spacing: 2px;
+}
+#management-inventory table th, #management-inventory table td {
+  padding: 10px 5px;
+  border-bottom: 1rem solid transparent;
+  background-color: var(--light-blue);
+  color: var(--main-background);
+  background-clip: padding-box;
+}
+#management-inventory a {
+  color: var(--main-background);
+}
+

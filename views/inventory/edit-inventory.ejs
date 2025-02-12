@@ -18,11 +18,10 @@
     </ul>
 <% } %>
             
-<!-- ADD NEW VEHICLE FORM -->
-<form id="add-vehicle-form" action="/inv/add-vehicle" method="post">
+<!-- UPDATE DATA OF A VEHICLE FORM -->
+<form id="edit-vehicle-form" action="/inv/edit-inventory" method="post">
     <label for="classificationList">Classification <span class="ast">*</span></label><br>
-    <!-- <input type="text" name="classification_id" id="classification_id" required pattern="[A-Za-zÀ-ÿ]+" value="<%= locals.classification_id %>"><br> -->
-    <%- list %> <br>
+    <%- classificationSelect %> <br>
 
     <label for="inv_make">Make <span class="ast">*</span></label><br>
     <input type="text" name="inv_make" id="inv_make" required placeholder="Min of 3 characters" minlength="3" pattern=".{3,}" value="<%= locals.inv_make %>"><br>
@@ -50,5 +49,11 @@
     
     <label for="inv_description">Description <span class="ast">*</span></label><br>
     <textarea name="inv_description" id="inv_description" required><%= locals.inv_description %></textarea><br>
-    <button id="submit-btn" type="submit" form="add-vehicle-form">Add Vehicle</button><br>
+    <button disabled id="submit-btn" type="submit" form="edit-vehicle-form">Update Vehicle</button><br>
+
+    <input type="hidden" name="inv_id"
+    <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
 </form>
+
+<script src="../../js/inv-update.js"></script>

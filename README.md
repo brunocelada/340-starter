@@ -61,8 +61,13 @@ Asegurarse que en el package.json se encuentren las siguientes línea:
     }
 Esto instalará las dependencias y solucionará problemas comunes automáticamente.
 
+Cada vez que se reinicie la base de datos, se debe cambiar el valor
+DATABASE_URL="..." en el archivo .env por el valor que aparece en Render.com 
+como External Database URL.
+
 Verificar si se agregaron los siguientes paquetes:
 pnpm add express-session connect-pg-simple express-messages connect-flash
 pnpm add body-parser
 pnpm add express-validator
 pnpm add bcryptjs
+pnpm add jsonwebtoken cookie-parser

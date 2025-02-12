@@ -66,6 +66,9 @@
     #management-links {
         grid-column: span 2;
     }
+    #management-inventory {
+        grid-column: span 2;
+    }
     
     /* ERRORS */
     #error-msj {
@@ -75,5 +78,10 @@
     .notice, #messages {
         grid-column: span 2;
         grid-row: 2;
+    }
+
+    /* ACCOUNT */
+    #account-view {
+        grid-column: span 2;
     }
 }

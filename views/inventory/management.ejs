@@ -13,3 +13,16 @@
 <!-- MANAGEMENT ITEMS DISPLAY
  Main content delivery mechanism for the view -->
 <%- grid %>
+
+<!-- Manage inventory (update or delete) -->
+<div id="management-inventory">
+<h2>Manage Inventory</h2>
+<p>Choose a classification to see those inventory items.</p>
+<%- classificationSelect %>
+
+<table id="inventoryDisplay"></table>
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+</div>
+
+<script src="../../js/inventory.js"></script>

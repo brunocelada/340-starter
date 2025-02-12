@@ -27,30 +27,17 @@ async function checkExistingEmail(account_email){
 }
 
 /* *****************************
-*   Check login account
-* *************************** */
-async function loginAccount(account_email, account_password){
+* Return account data using email address
+* ***************************** */
+async function getAccountByEmail (account_email) {
     try {
-        const sql = "SELECT * FROM account  WHERE account_email = $1"
-        const result = await pool.query(sql, [account_email])
-
-        if (result.rows.length === 0) {
-            return null // User not found
-        }
-
-        const user = result.rows[0]
-
-        // Compare the passwords
-        const passwordMatch = await bcrypt.compare(account_password, user.account_password)
-
-        if (!passwordMatch) {
-            return null // Incorrect password
-        }
-
-        return user // Return user if everything is correct
+      const result = await pool.query(
+        'SELECT account_id, account_firstname, account_lastname, account_email, account_type, account_password FROM account WHERE account_email = $1',
+        [account_email])
+      return result.rows[0]
     } catch (error) {
-        return error.message
+      return new Error("No matching email found")
     }
-};
+  }
 
-module.exports = { registerAccount, checkExistingEmail, loginAccount };
+module.exports = { registerAccount, checkExistingEmail, getAccountByEmail };
