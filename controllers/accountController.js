@@ -149,6 +149,7 @@ async function buildAccount(req, res, next) {
         title: "Account Management",
         nav,
         errors: null,
+        accountData: req.session.accountData,
     })
 }
 
