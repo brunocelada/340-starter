@@ -63,7 +63,8 @@ Esto instalará las dependencias y solucionará problemas comunes automáticamen
 
 Cada vez que se reinicie la base de datos, se debe cambiar el valor
 DATABASE_URL="..." en el archivo .env por el valor que aparece en Render.com 
-como External Database URL.
+como External Database URL. 
+También cambiarlo en el servidor (ws) de Render, pero con el Internal Database URL.
 
 Verificar si se agregaron los siguientes paquetes:
 pnpm add express-session connect-pg-simple express-messages connect-flash

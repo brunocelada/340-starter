@@ -1,6 +1,7 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities")
 
+
 const invCont = {}
 
 /* ***************************
@@ -49,11 +50,11 @@ invCont.buildDetailView = async function (req, res, next) {
 invCont.buildManagementView = async function (req, res, next) {
     try {
         let nav = await utilities.getNav()
-
         // Create a select list to display the classification list
         const classificationSelect = await utilities.buildClassificationList()
-
-        let grid = await utilities.buildManagementHTML() // Build the management HTML
+        // Build the management HTML
+        let grid = await utilities.buildManagementHTML()
+        
         res.render("./inventory/management", {
             title: "Vehicle Management",
             nav,

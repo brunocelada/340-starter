@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const accountModel = require("../models/account-model")
 const Util = {}
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -124,13 +125,15 @@ Util.checkJWTToken = (req, res, next) => {
    jwt.verify(
     req.cookies.jwt,
     process.env.ACCESS_TOKEN_SECRET,
-    function (err, accountData) {
+    async function (err, accountData) {
      if (err) {
       req.flash("Please log in")
       res.clearCookie("jwt")
       return res.redirect("/account/login")
      }
-     res.locals.accountData = accountData
+     // Update the changes in the account data
+     const updatedAccountData = await accountModel.getAccountById(accountData.account_id)
+     res.locals.accountData = updatedAccountData
      res.locals.loggedin = 1
      next()
     })

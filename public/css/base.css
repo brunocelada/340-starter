@@ -49,6 +49,10 @@ header {
   top: 10px;
   right: 10px;
 }
+#tools a {
+  text-decoration: underline;
+  padding-left: 5px;
+}
 
 /* Navigation */
 nav {
@@ -264,7 +268,7 @@ form div a {
   text-decoration: underline;
   color: var(--dark-contrast);
 }
-#submit-btn, #pswdBtn {
+button, #pswdBtn {
   width: initial;
   font-size: .9rem;
   background-color: var(--main-background);
@@ -275,9 +279,10 @@ form div a {
   cursor: pointer;
   font-weight: bold;
 }
-#submit-btn:disabled, #pswdBtn:disabled {
+button:disabled, #pswdBtn {
   background-color: #f5f5f5;
   color: #acacac;
+  cursor: initial;
 }
 .form-indication {
   max-width: 250px;
@@ -323,4 +328,24 @@ input:required:valid {
 #management-inventory a {
   color: var(--main-background);
 }
+#type-of-account {
+  color: #3e7aaf;
+  font-weight: normal;
+  font-style: italic;
+}
 
+/* UPDATE ACCOUNTS */
+#update-account-form, #update-pswd-form {
+  border: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  justify-self: flex-start;
+}
+#update-account-view {
+  display: block;
+}
+#update-pswd-form .note {
+  font-size: .8rem;
+  font-weight: lighter;
+  color: rgb(121, 0, 0);
+}
