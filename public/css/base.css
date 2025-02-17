@@ -366,6 +366,9 @@ input:required:valid {
 #compare-section tbody tr:hover {
   background-color: #f5f5f5;
 }
+#compare-section tbody tr:first-child {
+  border-top: 1px solid #b3b3b3;
+}
 #compare-section p {
   grid-column: span 2;
   color: rgb(121, 0, 0);
@@ -374,12 +377,10 @@ input:required:valid {
 #compare-section img {
   width: 100%;
   object-fit: cover;
-  max-width: 300px;
   aspect-ratio: 4/3;
   display: block;
   padding: 0 0 1rem 0;
   margin: auto;
-  border-bottom: 1px solid #b3b3b3;
 }
 #compare-section select {
   width: 100%;

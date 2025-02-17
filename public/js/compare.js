@@ -103,7 +103,7 @@ function buildInventoryData(element, tableName) {
     // Set up the table labels 
     let dataTable = '<thead>'; 
     dataTable += `<tr><th>"${element.inv_make} ${element.inv_model}"</th></tr>`;
-    dataTable += `<tr><th id="th-img"><img src="${element.inv_thumbnail}" alt="Image of ${element.inv_make} ${element.inv_model} on CSE Motors"></th></tr>`;
+    dataTable += `<tr><th id="th-img"><img src="${element.inv_image}" alt="Image of ${element.inv_make} ${element.inv_model} on CSE Motors"></th></tr>`;
     dataTable += '</thead>'; 
     // Set up the table body 
     dataTable += '<tbody>';
