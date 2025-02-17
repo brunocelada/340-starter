@@ -1,0 +1,45 @@
+<!-- CONTENT HEADING
+ Add a h1 element if the page has a title -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+        
+<!-- MESSAGE
+ Add the capacity to display a message in the future -->
+<%- messages() %>
+
+<% if (errors) { %>
+    <ul class="notice">
+<% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+<% }) %>    
+    </ul>
+<% } %>
+        
+<!-- ENHANCEMENT <------------------------------------------------ -->
+<!-- Compare Vehicles -->
+<div id="compare-section">
+    <p>Choose a classification and a vehicle to compare.</p>
+
+    <div id="vehicle-1">
+        <%- classificationList1 %>
+        <br>
+        <%- vehicleList1 %> 
+        <!-- <select disabled name="inv_id" id="vehicleList1" required></select>  -->
+        <table id="vehicleTable1"></table>
+    </div>
+    <div id="vehicle-2">
+        <%- classificationList2 %>
+        <br>
+        <%- vehicleList2 %>
+        <!-- <select disabled name="inv_id" id="vehicleList2" required></select> -->
+        <table id="vehicleTable2"></table>
+    </div>
+
+
+    <noscript>JavaScript must be enabled to use this page.</noscript>
+</div>
+
+<script src="../../js/compare.js"></script>

@@ -47,7 +47,7 @@ When you installed Git and cloned the remote repository in week 1, you should ha
 3. You should see that page in the browser.
 
 
-# DATOS AGREGADOS
+## DATOS AGREGADOS
 Al utilizar una computadora distinta, abrir la carpeta donde se encuentre el proyecto
 y ejecutar
     pnpm run setup
@@ -72,3 +72,21 @@ pnpm add body-parser
 pnpm add express-validator
 pnpm add bcryptjs
 pnpm add jsonwebtoken cookie-parser
+
+## W06 Assignment: Final Enhancement
+The new feature allows, within the detailed view of each vehicle, to generate a link that leads to a new page to compare the information of 2 vehicles simultaneously. 2 tables are dynamically built with the respective information and allows the user to visually compare the year, price, mileage, etc., of 2 vehicles selected within the inventory.
+(In the README.md file you can obtain more details of the changes.)
+
+1. Database: The getVehicleById() [line 31, inventory-model.js file] and getInventoryByClassificationId() [line 13, inventory-model.js file] functions from the models file were used to obtain data from the database.
+
+2. Model: The inventory-model.js file was not modified, but already created functions were used. However, functionalities were added in the utilities/index.js file, on lines 80, 102, 105 and a whole new function called buildVehicleList() on line 125 of the same file.
+The public/js/compare.js file was also added with functions that allow processing the changes and information necessary for the functionality of the new view.
+
+3. Controller: the new buildCompareVehiclesView() functionality was added on line 412 of the invController.js file, and the new getVehicleJSON() functionality was added on line 448.
+
+4. View: Two new routes were added to the inventoryRoute.js file to build the vehicle comparison view (line 102) and obtain the list of vehicles through JSON processing (line 105).
+The inventory/compare.ejs file was also added to create the desired view.
+
+5. Data Validation: Line 67 of the inventoryRoute.js file was modified to allow the vehicle comparison functionality to be available to any user, not just to users with special permissions.
+
+6. Error Handling: All routes, processes, functions, and tools included proper error handling, allowing the necessary information to be displayed on the console or screen.

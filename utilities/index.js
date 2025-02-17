@@ -77,6 +77,7 @@ Util.buildVehicleHTML = async function (vehicle){
     grid += '<p><strong>Description:</strong> ' + vehicle.inv_description + '</p>'
     grid += '</div>'
     grid += '</div>'
+    grid += '<br><a id="compare-link" href="/inv/compare/' + vehicle.inv_id + '" title="Compare this vehicle with another">Compare Vehicle</a>' // ENHANCEMENT <--------------------
   } else {
     grid += '<p class="notice">Sorry, we could not find that vehicle.</p>'
   }
@@ -96,12 +97,12 @@ Util.buildManagementHTML = async function (req, res, next) {
 }
 
 /* **************************************
-* Build the classification list for the "add-vehicle" form
+* Build the classification list
 * ************************************ */
-Util.buildClassificationList = async function (classification_id = null) {
+Util.buildClassificationList = async function (classification_id = null, selectId = "classificationList") { // ENHANCEMENT <------------
   let data = await invModel.getClassifications()
   let classificationList =
-    '<select name="classification_id" id="classificationList" required>'
+    '<select name="classification_id" id="'+ selectId + '" required>'
   classificationList += "<option value=''>Choose a Classification</option>"
   data.rows.forEach((row) => {
     classificationList += '<option value="' + row.classification_id + '"'
@@ -115,6 +116,43 @@ Util.buildClassificationList = async function (classification_id = null) {
   })
   classificationList += "</select>"
   return classificationList
+}
+
+// ENHANCEMENT <----------------------------------------------------------------
+/* **************************************
+* Build the vehicle list
+* ************************************ */
+Util.buildVehicleList = async function (inv_id = null, selectId = "vehicleList") {
+  let selectedVehicle = await invModel.getVehicleById(inv_id)
+
+  let vehicleList = `<select disabled name="vehicle_id" id="${selectId}" required>`
+
+  // Validate if data is a valid object
+  if (!selectedVehicle || Object.keys(selectedVehicle).length === 0) {
+    console.warn("No vehicle data available.")
+    vehicleList += "<option value=''>Choose a Vehicle</option>"
+    vehicleList += "</select>"
+    return vehicleList
+  }
+
+  let classification_id = selectedVehicle.classification_id
+  let data = await invModel.getInventoryByClassificationId(classification_id)
+
+  vehicleList += "<option value=''>Choose a Vehicle</option>"
+  
+  data.forEach((row) => {
+    vehicleList += '<option value="' + row.inv_id + '"'
+    if (
+      inv_id != null &&
+      row.inv_id == inv_id
+    ) {
+      vehicleList += " selected "
+    }
+    vehicleList += ">" + row.inv_make + " " + row.inv_model + "</option>"
+  })
+
+  vehicleList += "</select>"
+  return vehicleList
 }
 
 /* ****************************************

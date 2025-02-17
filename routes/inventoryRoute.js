@@ -64,9 +64,7 @@ router.post(
 // *****************************
 
 // Route to build the "getInventory" views
-router.get("/getInventory/:classification_id", 
-    utilities.checkLogin,
-    accountController.checkAccountType,
+router.get("/getInventory/:classification_id",
     utilities.handleErrors(invController.getInventoryJSON))
 
 // Route to build the edit inventory views
@@ -98,5 +96,13 @@ router.post(
     accountController.checkAccountType,
     utilities.handleErrors(invController.deleteInventory)
 );
+
+// ENHANCEMENT <----------------------------------------------------------------
+// Route to build the compare vehicles view
+router.get("/compare/:inv_id", utilities.handleErrors(invController.buildCompareVehiclesView));
+
+// Route to build the "getVehicle" views
+router.get("/getVehicle/:inv_id",
+    utilities.handleErrors(invController.getVehicleJSON))
 
 module.exports = router;

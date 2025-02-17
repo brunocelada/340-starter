@@ -217,7 +217,7 @@ invCont.addNewVehicle = async function (req, res, next) {
  * ************************** */
 invCont.getInventoryJSON = async (req, res, next) => {
     const classification_id = parseInt(req.params.classification_id)
-    const invData = await invModel.getInventoryByClassificationId(classification_id)
+    const invData = await invModel.getInventoryByClassificationId(classification_id)    
     if (invData[0].inv_id) {
       return res.json(invData)
     } else {
@@ -402,6 +402,56 @@ invCont.deleteInventory = async function (req, res, next) {
         }
     } catch (error) {
         next(error)   
+    }
+}
+
+// ENHANCEMENT <-----------------------------------------------------------
+/* ***************************
+ *  Build compare vehicles view
+ * ************************** */
+invCont.buildCompareVehiclesView = async function (req, res, next) {
+    try {
+        let nav = await utilities.getNav()
+        
+        const itemId = parseInt(req.params.inv_id)
+        if (isNaN(itemId)) {
+            throw new Error("Invalid vehicle ID: NaN")
+        }
+        const itemData = await invModel.getVehicleById(itemId)
+        const classificationId = itemData.classification_id
+        
+        // Build the 2 classification lists
+        const classificationList1 = await utilities.buildClassificationList(classificationId, "classificationList1")
+        const classificationList2 = await utilities.buildClassificationList(null, "classificationList2")
+
+        // Build the 2 vehicles list
+        const vehicleList1 = await utilities.buildVehicleList(itemId, "vehicleList1")
+        const vehicleList2 = await utilities.buildVehicleList(null, "vehicleList2")
+
+        res.render("./inventory/compare", {
+            title: "Vehicle Comparation",
+            nav,
+            classificationList1,
+            classificationList2,
+            vehicleList1,
+            vehicleList2,
+            errors: null,
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+/* ***************************
+ *  Return Inventory Details by inventory_id As JSON
+ * ************************** */
+invCont.getVehicleJSON = async (req, res, next) => {
+    const inv_id = parseInt(req.params.inv_id)
+    const invData = await invModel.getVehicleById(inv_id)
+    if (invData.inv_id) {
+      return res.json(invData)
+    } else {
+      next(new Error("No data returned"))
     }
 }
 

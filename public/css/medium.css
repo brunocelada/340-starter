@@ -94,4 +94,9 @@
     #update-account-view {
         grid-column: span 2;
       }
+
+    /* ENHANCEMENT <--------------------------------------------------- */
+    #compare-section {
+        grid-column: span 2;
+    }
 }
